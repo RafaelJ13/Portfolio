@@ -44,7 +44,7 @@ function App() {
                 <section className='mx-auto flex w-full max-w-5x1 flex-col items-center text-center'>
                     <div className='inline-flex flex-col items-center'>
                         <div className='mb-6 overflow-hidden whitespace-nowrap rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-center text-xs font-medium uppercase tracking-[0.24em] text-neutral-400 backdrop-blur'>
-                            <div className='relative h-4 overflow-hidden md:w-[13rem]  '>
+                            <div className='relative h-4 overflow-hidden w-[13rem]  '>
                                 <div
                                     className={[
                                         'flex flex-col',
