@@ -64,6 +64,33 @@ function App() {
                         <h1 className='w-max text-5xl font-semibold tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl'>
                             Rafael J.
                         </h1>
+
+                        <p className='mt-5 max-w-2xl text-base leading-7 text-neutral-300 sm:text-lg md:text-xl'>
+                            I build scalable web applications using <span className='font-semibold text-white'>Java</span>, {' '}
+                            <span className='font-semibold text-white'>Spring Boot</span>, {' '}
+                            <span className='font-semibold text-white'>React</span>, and {' '}
+                            <span className='font-semibold text-white'>PostgreSQL</span>.
+                        </p>
+                        <div
+                            id='stack'
+                            className='mt-10 flex flex-wrap items-center justify-center gap-3 max-w-3xl'
+                        >
+                            {[
+                                { name: 'Java', tone: 'border-red-400/10' },
+                                { name: 'Spring Boot', tone: 'border-emerald-400/10' },
+                                { name: 'React', tone: 'border-sky-400/10' },
+                                { name: 'PostgreSQL', tone: 'border-indigo-400/10' }
+                            ].map((tech) => (
+                                <span
+                                    key={tech.name}
+                                    className={`rounded-full border bg-neutral-800/80 px-4 py-2 font-medium text-neutral-200 backdrop-blur ${tech.tone}`}
+                                >
+                                    {tech.name}
+                                </span>
+                            ))}
+
+
+                        </div>
                     </div>
                 </section>
             </main>
