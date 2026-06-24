@@ -1,6 +1,6 @@
 function SiteFooter() {
   return (
-    <footer className='z10 flex items-center justify-center'>
+    <footer className="flex items-center justify-center py-6 text-xs text-neutral-500">
       © Made By Rafaelj13
     </footer>
   );

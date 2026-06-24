@@ -4,7 +4,7 @@ function ScrollArrow() {
     const [visible, setVisible] = useState(true);
 
     useEffect(() => {
-        const handleScroll = () => setVisible(window.scrollY > 100);
+        const handleScroll = () => setVisible(window.scrollY < 100);
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
 
@@ -14,7 +14,7 @@ function ScrollArrow() {
             onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
             style={{
                 opacity: visible ? 1 : 0,
-                transform: "opacity 0.3s",
+                transition: "opacity 0.3s",
             }}
         >
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "2px" }}>
@@ -25,7 +25,7 @@ function ScrollArrow() {
                     height="10"
                     viewBox="0 0 24 16"
                     fill="none"
-                    stroke="currentColor"
+                        stroke="white"
                     strokeWidth="3"
                     style={{ animation: `bounce 2s ${delay}s infinite` }}
                     >

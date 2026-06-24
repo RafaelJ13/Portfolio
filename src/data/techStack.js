@@ -19,6 +19,26 @@ const techStack = [
     tone: 'border-indigo-300/10',
     hoverTone: 'hover:border-indigo-300/20 hover:bg-indigo-400/10',
   },
+  {
+    name: 'Docker',
+    tone: 'border-blue-300/10',
+    hoverTone: 'hover:border-blue-300/20 hover:bg-blue-400/10',
+  },
+  {
+    name: 'REST APIs',
+    tone: 'border-violet-300/10',
+    hoverTone: 'hover:border-violet-300/20 hover:bg-violet-400/10',
+  },
+  {
+    name: 'Git',
+    tone: 'border-orange-300/10',
+    hoverTone: 'hover:border-orange-300/20 hover:bg-orange-400/10',
+  },
+  {
+    name: 'Linux',
+    tone: 'border-yellow-300/10',
+    hoverTone: 'hover:border-yellow-300/20 hover:bg-yellow-400/10',
+  },
 ];
 
 export default techStack;

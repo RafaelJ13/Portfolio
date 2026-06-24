@@ -1,0 +1,147 @@
+#about {
+    border-bottom: 0.5px solid hsl(0, 0%, 10%);
+}
+
+/* =======================
+   BASE (DESKTOP)
+======================= */
+
+.section-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-text p {
+    font-size: 18px;
+    color: #ccc;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 1.5rem;
+}
+
+.skill-tag {
+    background: #161616;
+    border: 0.5px solid #2a2a2a;
+    border-radius: 20px;
+    padding: 8px 18px;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.skill-tag.primary {
+    border-color: #3a3a3a;
+    color: #fff;
+}
+
+.skill-tag-tw {
+    border-radius: 20px;
+    padding: 8px 18px;
+    font-size: 14px;
+    color: #fff;
+    background: #161616;
+    cursor: default;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.stat {
+    background: #161616;
+    border: 0.5px solid #222;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.stat-num {
+    font-size: 48px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: #fff;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #777;
+}
+
+/* =======================
+   TABLET (≤768px)
+======================= */
+
+@media (max-width: 768px) {
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-text p {
+        font-size: 16px;
+    }
+
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat {
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .stat-num {
+        font-size: 32px;
+    }
+
+    .stat-label {
+        font-size: 13px;
+    }
+}
+
+/* =======================
+   MOBILE (≤480px)
+======================= */
+
+@media (max-width: 480px) {
+
+    .section-label {
+        font-size: 10px;
+        margin-bottom: 1rem
+    }
+
+    .about-text p {
+        font-size: 15px;
+    }
+
+    .skill-tag,
+    .skill-tag-tw {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .stat-num {
+        font-size: 28px;
+    }
+
+    .stat {
+        padding: 1.2rem;
+    }
+}
+
