@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import roles from '../../data/roles';
 import TechStack from './TechStack';
+import ScrollArrow from '../ui/ScrollArrow';
 
 function HeroSection() {
   const [index, setIndex] = useState(0);
@@ -71,6 +72,15 @@ function HeroSection() {
           <TechStack />
         </div>
       </section>
+        <div style={{
+          position: "absolute",
+          bottom: "2rem",
+          left: "50%",
+          transform: "translateX(-50%)"
+        }}>
+          <ScrollArrow />
+        </div>
+      
     </main>
   );
 }
