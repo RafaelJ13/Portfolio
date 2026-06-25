@@ -1,21 +1,24 @@
 import useGitHubRepoCount from '../../hooks/useGithubRepoCount.js'
+import useGithubLanguageCount from '../../hooks/useGithubLanguageCount.js';
 import '../../styles/About.css'
 import techStack from '../../data/techStack.js'
 
 function About() {
+    const currYear = new Date().getFullYear();
 
     const repoCount = useGitHubRepoCount("RafaelJ13");
+    const userlangs = useGithubLanguageCount("RafaelJ13");
 
     const stats = [
-        { num: "5+", label: "Years coding" },
+        { num: (currYear-2020).toString()+"+", label: "Years coding" },
         { num: repoCount.toString(),  label: "Projects built" },
-        { num: "4",  label: "Core technologies" },
+        { num: userlangs.toString(),  label: "Core technologies" },
         { num: "PT", label: "Based in Portugal" },
     ];
 
 
     return (
-        <section id="about" className="min-h-screen snap-start flex flex-col justify-center border-b border-neutral-900">
+        <section id="about" className="min-h-screen flex flex-col justify-center border-b border-neutral-900">
             <div className="max-w-4xl w-full mx-auto px-10">
                 <p className="section-label -mb-6">About</p>
                 <div className="about-grid">

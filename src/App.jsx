@@ -1,24 +1,17 @@
-import Lenis from 'lenis'
-import { useEffect } from 'react';
-
 import BackgroundGrid from './Components/background/BackgroundGrid'
 import HeroSection from './Components/sections/HeroSection';
 import CustomCursor from './Components/ui/CustomCursor';
 import SiteFooter from './Components/ui/SiteFooter';
 import useCustomCursor from './hooks/useCustomCursor';
 import About from './Components/sections/About'
+import Contact from './Components/sections/Contact';
+import useScrollSnap from './hooks/useScrollSnap'
 
 function App() {
+    const SECTIONS = ['hero', 'about', 'contact']
+
     const { cursorEnabled, cursorPoint, isCursorHovering } = useCustomCursor();
-    
-        useEffect(() => {
-            const lenis = new Lenis()
-            function raf(time) {
-                lenis.raf(time)
-                requestAnimationFrame(raf)
-            }
-            requestAnimationFrame(raf)
-        }, [])
+    useScrollSnap(SECTIONS)
 
     return (
         <>
@@ -35,6 +28,7 @@ function App() {
             </div>
             <div>
                 <About />
+                <Contact />
                 <SiteFooter />
             </div>
         </>
