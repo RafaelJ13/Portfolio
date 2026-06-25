@@ -13,6 +13,8 @@ function App() {
     const { cursorEnabled, cursorPoint, isCursorHovering } = useCustomCursor();
     useScrollSnap(SECTIONS)
 
+    console.log('token:', import.meta.env.VITE_GITHUB_TOKEN)
+    
     return (
         <>
             <div className="min-h-screen bg-neutral-900 text-white relative ">
