@@ -6,6 +6,7 @@ import useCustomCursor from './hooks/useCustomCursor';
 import About from './Components/sections/About'
 import Contact from './Components/sections/Contact';
 import useScrollSnap from './hooks/useScrollSnap'
+import Navbar from './Components/ui/Navbar';
 
 function App() {
     const SECTIONS = ['hero', 'about', 'contact']
@@ -15,6 +16,7 @@ function App() {
 
     return (
         <>
+            <Navbar/>
             <div className="min-h-screen bg-neutral-900 text-white relative ">
                 <CustomCursor
                     cursorEnabled={cursorEnabled}
