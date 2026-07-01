@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import roles from '../../data/roles';
-import TechStack from './TechStack';
+import TechStack from '../ui/TechStack';
 import ScrollArrow from '../ui/ScrollArrow';
 
 function HeroSection() {

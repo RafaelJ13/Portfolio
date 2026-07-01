@@ -1,6 +1,5 @@
 import '../../styles/Projects.css'
-import { TAG_COLORS } from '../../data/techStack.js'
-import { ICONS } from '../../data/techIcons'
+import { TAG_COLORS, ICONS } from '../../data/techStack'
 
 const DEFAULT_TAG = { tone: 'border-neutral-300/10', cardHoverTone: 'group-hover/card:border-neutral-300/20 group-hover/card:bg-neutral-400/10' }
 const tagStyle = (name) => TAG_COLORS[name] ?? DEFAULT_TAG

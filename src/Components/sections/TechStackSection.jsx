@@ -1,6 +1,5 @@
 import '../../styles/TechStackSection.css'
-import { ICONS } from '../../data/techIcons'
-import { TAG_COLORS } from '../../data/techStack.js'
+import { ICONS, TAG_COLORS } from '../../data/techStack'
 
 const DEFAULT_TAG = { tone: 'border-neutral-300/10', hoverTone: 'hover:border-neutral-300/20 hover:bg-neutral-400/10' }
 const tagStyle = (name) => TAG_COLORS[name] ?? DEFAULT_TAG
@@ -8,11 +7,11 @@ const tagStyle = (name) => TAG_COLORS[name] ?? DEFAULT_TAG
 const categories = [
     {
         label: 'Languages',
-        techs: ['Java', 'JavaScript', 'TypeScript', 'PHP', 'HTML', 'CSS'],
+        techs: ['Java', 'JavaScript', 'PHP', 'HTML', 'CSS'],
     },
     {
         label: 'Frameworks & Libraries',
-        techs: ['Spring Boot', 'React', 'Node.js', 'Tailwind CSS'],
+        techs: ['Spring Boot', 'React', 'Node.js', 'Tailwind CSS', 'Discord.js', 'Android SDK'],
     },
     {
         label: 'Databases',
@@ -20,7 +19,7 @@ const categories = [
     },
     {
         label: 'Tools & DevOps',
-        techs: ['Docker', 'Git', 'GitHub Actions', 'Maven', 'Gradle', 'Vite', 'CI/CD', 'Swagger'],
+        techs: ['Docker', 'Git', 'GitHub Actions', 'Maven', 'Gradle', 'Vite', 'CI/CD', 'Swagger', 'GitHub API'],
     },
     {
         label: 'Concepts & Practices',

@@ -1,8 +1,7 @@
 import useGitHubRepoCount from '../../hooks/useGithubRepoCount.js'
 import useGithubLanguageCount from '../../hooks/useGithubLanguageCount.js';
 import '../../styles/About.css'
-import techStack from '../../data/techStack.js'
-import { ICONS } from '../../data/techIcons'
+import techStack, { ICONS } from '../../data/techStack'
 
 function About() {
     const currYear = new Date().getFullYear();

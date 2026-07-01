@@ -1,5 +1,4 @@
-import techStack from '../../data/techStack'
-import { ICONS } from '../../data/techIcons'
+import techStack, { ICONS } from '../../data/techStack'
 
 function TechStack() {
   return (

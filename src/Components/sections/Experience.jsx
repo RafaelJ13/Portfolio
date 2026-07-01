@@ -1,6 +1,5 @@
 import '../../styles/Experience.css'
-import { TAG_COLORS } from '../../data/techStack.js'
-import { ICONS } from '../../data/techIcons'
+import { TAG_COLORS, ICONS } from '../../data/techStack'
 
 const DEFAULT_TAG = { tone: 'border-neutral-300/10', hoverTone: 'hover:border-neutral-300/20 hover:bg-neutral-400/10' }
 const tagStyle = (name) => TAG_COLORS[name] ?? DEFAULT_TAG
@@ -25,7 +24,7 @@ const entries = [
         role: "CTeSP — Information Systems Technologies and Programming",
         company: "Polytechnic Institute of Castelo Branco — ESTCB",
         description: "EQF Level 5 qualification covering software engineering, OOP, relational databases, web development, and systems design.",
-        tags: ["PHP", "JavaScript", "SQL", "HTML", "CSS", "OOP", "Java", "Agile", "Android"],
+        tags: ["PHP", "JavaScript", "SQL", "HTML", "CSS", "OOP", "Java", "Agile", "Android SDK"],
     },
 ]
 
