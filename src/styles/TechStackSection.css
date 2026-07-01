@@ -1,0 +1,71 @@
+#techstack {
+    position: relative;
+    overflow: hidden;
+}
+
+.techstack-blob-violet {
+    width: 460px;
+    height: 460px;
+    background: rgba(139, 92, 246, 0.08);
+    top: -8%;
+    right: -10%;
+}
+
+.techstack-blob-cyan {
+    width: 380px;
+    height: 380px;
+    background: rgba(34, 211, 238, 0.06);
+    bottom: 5%;
+    left: -8%;
+}
+
+.techstack-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.techstack-cat-label {
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 0.65rem;
+}
+
+.techstack-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.techstack-card {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    padding: 8px 14px;
+    cursor: default;
+}
+
+.techstack-card-name {
+    font-size: 13px;
+    color: #bbb;
+    transition: color 0.2s;
+}
+
+.techstack-card:hover .techstack-card-name {
+    color: #e5e5e5;
+}
+
+/* =======================
+   MOBILE (≤480px)
+======================= */
+
+@media (max-width: 480px) {
+    .techstack-card {
+        padding: 7px 11px;
+    }
+
+    .techstack-card-name {
+        font-size: 12px;
+    }
+}

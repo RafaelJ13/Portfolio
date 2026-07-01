@@ -3,6 +3,7 @@ import Lenis from 'lenis'
 
 function useScrollSnap(sectionIds) {
     const idsRef = useRef(sectionIds)
+    idsRef.current = sectionIds
 
     useEffect(() => {
         const lenis = new Lenis()

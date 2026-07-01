@@ -42,6 +42,8 @@ body {
 .hero-outer::after,
 #about::before,
 #about::after,
+#techstack::before,
+#techstack::after,
 #projects::before,
 #projects::after,
 #experience::before,
@@ -58,6 +60,7 @@ body {
 /* bottom fades → fade out downward into black */
 .hero-outer::after,
 #about::after,
+#techstack::after,
 #projects::after,
 #experience::after {
     bottom: 0;
@@ -67,6 +70,7 @@ body {
 
 /* top fades → fade in from black at the top of each section */
 #about::before,
+#techstack::before,
 #projects::before,
 #experience::before,
 #contact::before {

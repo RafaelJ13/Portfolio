@@ -3,6 +3,7 @@ import HeroSection from './Components/sections/HeroSection';
 import CustomCursor from './Components/ui/CustomCursor';
 import useCustomCursor from './hooks/useCustomCursor';
 import About from './Components/sections/About'
+import TechStackSection from './Components/sections/TechStackSection'
 import Projects from './Components/sections/Projects'
 import Experience from './Components/sections/Experience'
 import Contact from './Components/sections/Contact';
@@ -10,7 +11,7 @@ import useScrollSnap from './hooks/useScrollSnap'
 import Navbar from './Components/ui/Navbar';
 import { useAnalytics } from './hooks/useAnalytics';
 
-const SECTIONS = ['hero', 'about', 'projects', 'experience', 'contact']
+const SECTIONS = ['hero', 'about', 'techstack', 'projects', 'experience', 'contact']
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
             </div>
             <div>
                 <About />
+                <TechStackSection />
                 <Projects />
                 <Experience />
                 <Contact />

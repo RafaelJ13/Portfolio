@@ -11,6 +11,10 @@ const navLinks = [
         icon: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>,
     },
     {
+        label: 'Stack', href: '#techstack', color: '#a78bfa',
+        icon: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>,
+    },
+    {
         label: 'Projects', href: '#projects', color: '#fb923c',
         icon: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>,
     },
@@ -31,9 +35,9 @@ function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
     const [activeSection, setActiveSection] = useState('')
 
-    useEffect(() => {
-        const sections = ['about', 'projects', 'experience', 'contact']
+    const sections = navLinks.map(l => l.href.slice(1)).filter(id => id !== 'hero')
 
+    useEffect(() => {
         const checkScroll = () => {
             const about = document.getElementById('about')
             if (!about) return
