@@ -18,13 +18,13 @@ function About() {
 
 
     return (
-        <section id="about" className="min-h-screen flex flex-col justify-center border-b border-neutral-900 pt-20 pb-10 md:py-0">
+        <section id="about" aria-label="About Rafael Januário" className="min-h-screen flex flex-col justify-center border-b border-neutral-900 pt-20 pb-10 md:py-0">
             <div className="max-w-4xl w-full mx-auto px-6 md:px-10">
-                <p className="section-label mb-2">About</p>
+                <h2 className="section-label mb-2">About</h2>
                 <div className="about-grid">
                     <div className="about-text">
-                        <p>Full-stack developer focused on building clean, scalable web applications.</p>
-                        <p>Currently looking for opportunities to contribute to meaningful products.</p>
+                        <p>Full-stack developer based in Portugal focused on building clean, scalable web applications with Java, Spring Boot, and React.</p>
+                        <p>Currently looking for full-time roles or freelance projects where I can contribute to meaningful products.</p>
 
                         <div className="skills-grid">
                             {techStack.map((s) => (

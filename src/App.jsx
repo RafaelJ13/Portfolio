@@ -20,11 +20,11 @@ function App() {
         <>
             <Navbar/>
             <div className="min-h-screen bg-neutral-900 text-white relative overflow-hidden">
-                <CustomCursor
+                { <CustomCursor
                     cursorEnabled={cursorEnabled}
                     cursorPoint={cursorPoint}
                     isCursorHovering={isCursorHovering}
-                />
+                /> }
                     <div className="absolute inset-0 overflow-hidden">
                         <BackgroundGrid />
                     </div>

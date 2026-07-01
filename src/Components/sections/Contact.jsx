@@ -36,7 +36,7 @@ function Contact() {
     ];
 
     return (
-        <section id="contact" className="min-h-screen flex flex-col justify-center border-b border-neutral-900">
+        <section id="contact" aria-label="Contact Rafael Januário" className="min-h-screen flex flex-col justify-center border-b border-neutral-900">
             <div className="max-w-4xl w-full mx-auto px-10 flex-1 flex flex-col justify-center">
                 <div className="contact-grid">
                     <div>

@@ -30,10 +30,10 @@ const entries = [
 
 function Experience() {
     return (
-        <section id="experience" className="min-h-screen flex flex-col justify-center border-b border-neutral-900 pt-20 pb-12 md:pt-28 md:pb-16">
+        <section id="experience" aria-label="Experience and Education of Rafael Januário" className="min-h-screen flex flex-col justify-center border-b border-neutral-900 pt-20 pb-12 md:pt-28 md:pb-16">
             {/* Title stays constrained to max-w-4xl */}
             <div className="max-w-4xl w-full mx-auto px-6 md:px-10">
-                <p className="section-label mb-2">Experience</p>
+                <h2 className="section-label mb-2">Experience</h2>
             </div>
             {/* Entries start at the same left edge as the title but extend right */}
             <div className="exp-list-outer">

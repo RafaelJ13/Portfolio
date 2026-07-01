@@ -51,9 +51,9 @@ const projects = [
 
 function Projects() {
     return (
-        <section id="projects" className="min-h-screen flex flex-col justify-center border-b border-neutral-900 pt-16">
+        <section id="projects" aria-label="Projects by Rafael Januário" className="min-h-screen flex flex-col justify-center border-b border-neutral-900 pt-16">
             <div className="max-w-4xl w-full mx-auto px-10 -py-3">
-                <p className="section-label mb-2 mt-4">Projects</p>
+                <h2 className="section-label mb-2 mt-4">Projects</h2>
                 <div className="projects-grid">
                     {projects.map((p, i) => (
                         <a
@@ -62,6 +62,7 @@ function Projects() {
                             href={p.url}
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label={`${p.name} — ${p.description}`}
                         >
                             <div className={`project-thumb ${p.thumb}`}>
                                 <div className={`thumb-grid ${p.gridClass}`} />
@@ -85,6 +86,7 @@ function Projects() {
                         href="https://github.com/RafaelJ13/Portfolio"
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="Portfolio — Single-page portfolio built with React and Vite, featuring scroll snapping, dynamic GitHub stats, and a contact form."
                     >
                         <div className="project-thumb thumb-portfolio">
                             <div className="thumb-portfolio-grid" />
@@ -106,6 +108,21 @@ function Projects() {
                                 ))}
                             </div>
                         </div>
+                    </a>
+                </div>
+
+                <div className="mt-6 flex justify-center">
+                    <a
+                        href="https://github.com/RafaelJ13"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition-colors duration-200"
+                    >
+                        See all projects on GitHub
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
                     </a>
                 </div>
             </div>

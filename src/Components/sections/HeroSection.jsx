@@ -36,7 +36,7 @@ function HeroSection() {
   const nextIndex = (index + 1) % roles.length;
 
   return (
-    <main id="hero"  className='min-h-screen relative z-10 flex items-center justify-center px-6 md:px-10 overflow-hidden'>
+    <main id="hero" aria-label="Rafael Januário — Full-Stack Developer" className='min-h-screen relative z-10 flex items-center justify-center px-6 md:px-10 overflow-hidden'>
       <section className='mx-auto flex w-full max-w-5x1 flex-col items-center text-center'>
         <div className='inline-flex flex-col items-center'>
           <div className='mb-6 overflow-hidden whitespace-nowrap rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-center text-xs font-medium uppercase tracking-[0.24em] text-neutral-400 backdrop-blur'>
