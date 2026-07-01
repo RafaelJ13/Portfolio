@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s https://raw.githubusercontent.com/RafaelJ13/Portfolio/main/package.json)",
+      "Bash(curl -s https://raw.githubusercontent.com/RafaelJ13/Portfolio/master/package.json)",
+      "Bash(curl -s https://raw.githubusercontent.com/RafaelJ13/Shortify/main/package.json)",
+      "Bash(curl -s https://raw.githubusercontent.com/RafaelJ13/Shortify/master/package.json)",
+      "Bash(curl -s https://raw.githubusercontent.com/RafaelJ13/Shortify/main/backend/package.json)",
+      "Bash(curl -s https://raw.githubusercontent.com/RafaelJ13/Shortify/master/backend/package.json)",
+      "Bash(curl -s https://raw.githubusercontent.com/RafaelJ13/github-migrator/main/pom.xml)",
+      "Bash(curl -s https://raw.githubusercontent.com/RafaelJ13/github-migrator/master/pom.xml)",
+      "Bash(curl *)"
+    ]
+  }
+}

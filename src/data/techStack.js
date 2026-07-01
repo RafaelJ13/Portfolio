@@ -16,6 +16,11 @@ const techStack = [
 ];
 
 const extraTags = [
+  { name: 'Design Patterns', tone: 'border-purple-300/10', hoverTone: 'hover:border-purple-300/20 hover:bg-purple-400/10', cardHoverTone: 'group-hover/card:border-purple-300/20 group-hover/card:bg-purple-400/10' },
+  { name: 'TypeScript',   tone: 'border-blue-400/10',    hoverTone: 'hover:border-blue-400/20 hover:bg-blue-400/10',    cardHoverTone: 'group-hover/card:border-blue-400/20 group-hover/card:bg-blue-400/10' },
+  { name: 'Tailwind CSS', tone: 'border-cyan-300/10',    hoverTone: 'hover:border-cyan-300/20 hover:bg-cyan-400/10',    cardHoverTone: 'group-hover/card:border-cyan-300/20 group-hover/card:bg-cyan-400/10' },
+  { name: 'Swagger',      tone: 'border-lime-300/10',    hoverTone: 'hover:border-lime-300/20 hover:bg-lime-400/10',    cardHoverTone: 'group-hover/card:border-lime-300/20 group-hover/card:bg-lime-400/10' },
+  { name: 'Gradle',       tone: 'border-teal-400/10',    hoverTone: 'hover:border-teal-400/20 hover:bg-teal-400/10',    cardHoverTone: 'group-hover/card:border-teal-400/20 group-hover/card:bg-teal-400/10' },
   { name: 'Maven',      tone: 'border-red-300/10',     hoverTone: 'hover:border-red-300/20 hover:bg-red-400/10',         cardHoverTone: 'group-hover/card:border-red-300/20 group-hover/card:bg-red-400/10' },
   { name: 'GitHub API', tone: 'border-blue-300/10',    hoverTone: 'hover:border-blue-300/20 hover:bg-blue-400/10',       cardHoverTone: 'group-hover/card:border-blue-300/20 group-hover/card:bg-blue-400/10' },
   { name: 'Discord.js', tone: 'border-indigo-300/10',  hoverTone: 'hover:border-indigo-300/20 hover:bg-indigo-400/10',   cardHoverTone: 'group-hover/card:border-indigo-300/20 group-hover/card:bg-indigo-400/10' },

@@ -8,25 +8,29 @@ const tagStyle = (name) => TAG_COLORS[name] ?? DEFAULT_TAG
 const categories = [
     {
         label: 'Languages',
-        techs: ['Java', 'JavaScript', 'PHP', 'HTML', 'CSS'],
+        techs: ['Java', 'JavaScript', 'TypeScript', 'PHP', 'HTML', 'CSS'],
     },
     {
-        label: 'Frameworks & Runtime',
-        techs: ['Spring Boot', 'React', 'Node.js'],
+        label: 'Frameworks & Libraries',
+        techs: ['Spring Boot', 'React', 'Node.js', 'Tailwind CSS'],
     },
     {
         label: 'Databases',
-        techs: ['PostgreSQL', 'MySQL', 'MongoDB'],
+        techs: ['PostgreSQL', 'MySQL', 'MongoDB', 'SQL'],
     },
     {
         label: 'Tools & DevOps',
-        techs: ['Docker', 'Git', 'GitHub Actions', 'Maven', 'Vite', 'CI/CD'],
+        techs: ['Docker', 'Git', 'GitHub Actions', 'Maven', 'Gradle', 'Vite', 'CI/CD', 'Swagger'],
+    },
+    {
+        label: 'Concepts & Practices',
+        techs: ['OOP', 'Design Patterns', 'REST API', 'Algorithms', 'Agile', 'Networks', 'Systems'],
     },
 ]
 
 function TechStackSection() {
     return (
-        <section id="techstack" aria-label="Tech Stack of Rafael Januário" className="min-h-screen flex flex-col justify-center pt-20 pb-10 md:py-0">
+        <section id="techstack" aria-label="Tech Stack of Rafael Januário" className="min-h-screen flex flex-col items-center pt-28 pb-20 md:pt-32 md:pb-24">
             <div className="section-bg-blob techstack-blob-violet" />
             <div className="section-bg-blob techstack-blob-cyan" />
             <div className="max-w-4xl w-full mx-auto px-6 md:px-10 relative" style={{ zIndex: 3 }}>
