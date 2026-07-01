@@ -8,6 +8,7 @@ function useScrollSnap(sectionIds) {
         const lenis = new Lenis()
         window.__lenis = lenis
         let locked = false
+        let fallbackTimer = null
 
         const getSections = () =>
             idsRef.current.map(id => document.getElementById(id)).filter(Boolean)
@@ -17,31 +18,35 @@ function useScrollSnap(sectionIds) {
             if (!sections.length) return
 
             const scrollY = window.scrollY
+            const tops = sections.map(s => ({
+                el: s,
+                top: s.getBoundingClientRect().top + scrollY,
+            }))
+
             const target = direction > 0
-                ? sections.find(s => s.offsetTop > scrollY + 50)
-                : [...sections].reverse().find(s => s.offsetTop < scrollY - 50)
+                ? tops.find(({ top }) => top > scrollY + 50)
+                : [...tops].reverse().find(({ top }) => top < scrollY - 50)
 
             if (!target) return
 
             locked = true
-            const fallback = setTimeout(() => { locked = false }, 1600)
+            clearTimeout(fallbackTimer)
+            fallbackTimer = setTimeout(() => { locked = false }, 2500)
 
-            lenis.scrollTo(target.offsetTop, {
+            lenis.scrollTo(target.top, {
                 duration: 1.4,
                 easing: t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
                 onComplete: () => {
-                    locked = false
-                    clearTimeout(fallback)
+                    clearTimeout(fallbackTimer)
+                    fallbackTimer = setTimeout(() => { locked = false }, 800)
                 },
             })
         }
 
         const onWheel = (e) => {
-            // capture: true garante que disparamos antes do listener do Lenis (bubble)
-            // stopImmediatePropagation impede o Lenis de processar o mesmo evento
             e.preventDefault()
             e.stopImmediatePropagation()
-            if (!locked) snap(e.deltaY)
+            if (!locked && Math.abs(e.deltaY) > 10) snap(e.deltaY)
         }
 
         const onKey = (e) => {
@@ -62,6 +67,7 @@ function useScrollSnap(sectionIds) {
 
         return () => {
             cancelAnimationFrame(rafId)
+            clearTimeout(fallbackTimer)
             window.removeEventListener('wheel', onWheel, { capture: true })
             window.removeEventListener('keydown', onKey)
             lenis.destroy()
