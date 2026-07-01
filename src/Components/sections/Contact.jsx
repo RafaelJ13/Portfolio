@@ -1,4 +1,5 @@
 import '../../styles/Contact.css'
+import SiteFooter from '../ui/SiteFooter'
 
 function Contact() {
     const links = [
@@ -36,7 +37,7 @@ function Contact() {
 
     return (
         <section id="contact" className="min-h-screen flex flex-col justify-center border-b border-neutral-900">
-            <div className="max-w-4xl w-full mx-auto px-10">
+            <div className="max-w-4xl w-full mx-auto px-10 flex-1 flex flex-col justify-center">
                 <div className="contact-grid">
                     <div>
                         <p className="section-label">Contact</p>
@@ -54,6 +55,7 @@ function Contact() {
                     </div>
                 </div>
             </div>
+            <SiteFooter />
         </section>
     );
 }

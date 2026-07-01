@@ -45,6 +45,11 @@
     color: #fff;
 }
 
+.navbar-links button.active {
+    color: #fff;
+    font-weight: 600;
+}
+
 .navbar-hamburger {
     display: none;
     background: none;
@@ -86,6 +91,11 @@
 
 .navbar-mobile button:hover {
     color: #fff;
+}
+
+.navbar-mobile button.active {
+    color: #fff;
+    font-weight: 600;
 }
 
 @media (max-width: 640px) {

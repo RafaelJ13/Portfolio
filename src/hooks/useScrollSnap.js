@@ -1,63 +1,73 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import Lenis from 'lenis'
 
 function useScrollSnap(sectionIds) {
+    const idsRef = useRef(sectionIds)
+
     useEffect(() => {
         const lenis = new Lenis()
-        const sections = sectionIds.map(id => document.getElementById(id))
-        let isScrolling = false
+        window.__lenis = lenis
+        let locked = false
 
-        const scrollTo = (e, direction) => {
-            if (isScrolling) return
-            isScrolling = true
+        const getSections = () =>
+            idsRef.current.map(id => document.getElementById(id)).filter(Boolean)
 
-            const current = sections.reduce((closest, s) => {
-                if (!s) return closest
-                const top = Math.abs(s.getBoundingClientRect().top)
-                const closestTop = Math.abs(closest.getBoundingClientRect().top)
-                return top < closestTop ? s : closest
+        const snap = (direction) => {
+            const sections = getSections()
+            if (!sections.length) return
+
+            const scrollY = window.scrollY
+            const target = direction > 0
+                ? sections.find(s => s.offsetTop > scrollY + 50)
+                : [...sections].reverse().find(s => s.offsetTop < scrollY - 50)
+
+            if (!target) return
+
+            locked = true
+            const fallback = setTimeout(() => { locked = false }, 1600)
+
+            lenis.scrollTo(target.offsetTop, {
+                duration: 1.4,
+                easing: t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
+                onComplete: () => {
+                    locked = false
+                    clearTimeout(fallback)
+                },
             })
-
-            const index = sections.indexOf(current)
-            const next = direction > 0 ? sections[index + 1] : sections[index - 1]
-
-            if (next) {
-                lenis.scrollTo(next.offsetTop, {
-                    duration: 1.2,
-                    onComplete: () => { isScrolling = false }
-                })
-            } else {
-                isScrolling = false
-            }
         }
 
-        const handleWheel = (e) => {
+        const onWheel = (e) => {
+            // capture: true garante que disparamos antes do listener do Lenis (bubble)
+            // stopImmediatePropagation impede o Lenis de processar o mesmo evento
             e.preventDefault()
-            scrollTo(e, e.deltaY)
+            e.stopImmediatePropagation()
+            if (!locked) snap(e.deltaY)
         }
 
-
-        const handleKey = (e) => {
+        const onKey = (e) => {
             if (!['ArrowDown', 'ArrowUp'].includes(e.key)) return
             e.preventDefault()
-            scrollTo(e, e.key === 'ArrowDown' ? 1 : -1)
+            if (!locked) snap(e.key === 'ArrowDown' ? 1 : -1)
         }
 
-        window.addEventListener('wheel', handleWheel, { passive: false })
-        window.addEventListener('keydown', handleKey, { passive: false })
+        window.addEventListener('wheel', onWheel, { passive: false, capture: true })
+        window.addEventListener('keydown', onKey)
 
-        function raf(time) {
+        let rafId
+        const raf = (time) => {
             lenis.raf(time)
-            requestAnimationFrame(raf)
+            rafId = requestAnimationFrame(raf)
         }
-        requestAnimationFrame(raf)
+        rafId = requestAnimationFrame(raf)
 
         return () => {
-            window.removeEventListener('wheel', handleWheel)
-            window.removeEventListener('keydown', handleKey)
+            cancelAnimationFrame(rafId)
+            window.removeEventListener('wheel', onWheel, { capture: true })
+            window.removeEventListener('keydown', onKey)
             lenis.destroy()
+            window.__lenis = null
         }
-    }, [sectionIds])
+    }, [])
 }
 
 export default useScrollSnap

@@ -18,9 +18,9 @@ function About() {
 
 
     return (
-        <section id="about" className="min-h-screen flex flex-col justify-center border-b border-neutral-900">
-            <div className="max-w-4xl w-full mx-auto px-10">
-                <p className="section-label -mb-6">About</p>
+        <section id="about" className="min-h-screen flex flex-col justify-center border-b border-neutral-900 pt-20 pb-10 md:py-0">
+            <div className="max-w-4xl w-full mx-auto px-6 md:px-10">
+                <p className="section-label mb-2">About</p>
                 <div className="about-grid">
                     <div className="about-text">
                         <p>Full-stack developer focused on building clean, scalable web applications.</p>
