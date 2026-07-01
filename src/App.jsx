@@ -8,6 +8,7 @@ import Experience from './Components/sections/Experience'
 import Contact from './Components/sections/Contact';
 import useScrollSnap from './hooks/useScrollSnap'
 import Navbar from './Components/ui/Navbar';
+import { useAnalytics } from './hooks/useAnalytics';
 
 const SECTIONS = ['hero', 'about', 'projects', 'experience', 'contact']
 
@@ -15,6 +16,7 @@ function App() {
 
     const { cursorEnabled, cursorPoint, isCursorHovering } = useCustomCursor();
     useScrollSnap(SECTIONS)
+    useAnalytics()
 
     return (
         <>
