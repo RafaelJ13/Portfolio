@@ -21,12 +21,14 @@ function App() {
     return (
         <>
             <Navbar/>
-            <div className="min-h-screen bg-neutral-900 text-white relative overflow-hidden">
+            <div className="min-h-screen bg-black text-white relative overflow-hidden hero-outer">
                 { <CustomCursor
                     cursorEnabled={cursorEnabled}
                     cursorPoint={cursorPoint}
                     isCursorHovering={isCursorHovering}
                 /> }
+                <div className="section-bg-blob hero-blob-blue" />
+                <div className="section-bg-blob hero-blob-purple" />
                     <div className="absolute inset-0 overflow-hidden">
                         <BackgroundGrid />
                     </div>

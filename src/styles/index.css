@@ -8,8 +8,71 @@ body,
 	background-color: #000000;
 }
 
+.section-bg-blob {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(90px);
+    will-change: transform;
+}
+
+.hero-blob-blue {
+    width: 500px;
+    height: 500px;
+    background: rgba(96, 165, 250, 0.08);
+    top: -10%;
+    right: -8%;
+}
+
+.hero-blob-purple {
+    width: 420px;
+    height: 420px;
+    background: rgba(167, 139, 250, 0.07);
+    bottom: 5%;
+    left: -8%;
+}
+
 body {
 	margin: 0;
+}
+
+/* ── Smooth section edge fades ──────────────────────────────────────
+   Gradient overlays at section boundaries so blobs fade into black
+   instead of cutting abruptly when snapping between sections.     */
+.hero-outer::after,
+#about::before,
+#about::after,
+#projects::before,
+#projects::after,
+#experience::before,
+#experience::after,
+#contact::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* bottom fades → fade out downward into black */
+.hero-outer::after,
+#about::after,
+#projects::after,
+#experience::after {
+    bottom: 0;
+    height: 160px;
+    background: linear-gradient(to top, #000 0%, transparent 100%);
+}
+
+/* top fades → fade in from black at the top of each section */
+#about::before,
+#projects::before,
+#experience::before,
+#contact::before {
+    top: 0;
+    height: 160px;
+    background: linear-gradient(to bottom, #000 0%, transparent 100%);
 }
 
 @media (pointer: fine) {

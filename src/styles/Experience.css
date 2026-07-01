@@ -1,3 +1,24 @@
+#experience {
+    position: relative;
+    overflow: hidden;
+}
+
+.exp-blob-blue {
+    width: 460px;
+    height: 460px;
+    background: rgba(91, 143, 168, 0.09);
+    top: 10%;
+    left: -12%;
+}
+
+.exp-blob-amber {
+    width: 360px;
+    height: 360px;
+    background: rgba(251, 191, 36, 0.05);
+    bottom: -5%;
+    right: -8%;
+}
+
 /* Left edge is offset so the timeline bar (period col 8.75rem + gap 1.25rem + half bar 0.75rem = 10.75rem
    minus half "EXPERIENCE" label width ≈ 2.5rem) centers the bar under the label text.
    Extends freely to the right with only padding-right. */

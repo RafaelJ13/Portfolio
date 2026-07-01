@@ -1,5 +1,6 @@
 import '../../styles/Experience.css'
 import { TAG_COLORS } from '../../data/techStack.js'
+import { ICONS } from '../../data/techIcons'
 
 const DEFAULT_TAG = { tone: 'border-neutral-300/10', hoverTone: 'hover:border-neutral-300/20 hover:bg-neutral-400/10' }
 const tagStyle = (name) => TAG_COLORS[name] ?? DEFAULT_TAG
@@ -30,13 +31,13 @@ const entries = [
 
 function Experience() {
     return (
-        <section id="experience" aria-label="Experience and Education of Rafael Januário" className="min-h-screen flex flex-col justify-center border-b border-neutral-900 pt-20 pb-12 md:pt-28 md:pb-16">
-            {/* Title stays constrained to max-w-4xl */}
-            <div className="max-w-4xl w-full mx-auto px-6 md:px-10">
+        <section id="experience" aria-label="Experience and Education of Rafael Januário" className="min-h-screen flex flex-col justify-center pt-20 pb-12 md:pt-28 md:pb-16">
+            <div className="section-bg-blob exp-blob-blue" />
+            <div className="section-bg-blob exp-blob-amber" />
+            <div className="max-w-4xl w-full mx-auto px-6 md:px-10 relative" style={{ zIndex: 3 }}>
                 <h2 className="section-label mb-2">Experience</h2>
             </div>
-            {/* Entries start at the same left edge as the title but extend right */}
-            <div className="exp-list-outer">
+            <div className="exp-list-outer relative" style={{ zIndex: 3 }}>
                 <div className="exp-list">
                     {entries.map((e, i) => (
                         <div key={i} className="exp-entry">
@@ -51,9 +52,15 @@ function Experience() {
                                 <p className="exp-desc">{e.description}</p>
                                 {e.tags && (
                                     <div className="exp-tags">
-                                        {e.tags.map((t) => (
-                                            <span key={t} className={`exp-tag border transition-colors duration-200 ${tagStyle(t).tone} ${tagStyle(t).hoverTone}`}>{t}</span>
-                                        ))}
+                                        {e.tags.map((t) => {
+                                            const entry = ICONS[t]
+                                            return (
+                                                <span key={t} style={entry ? { '--ic': entry.color } : undefined} className={`group exp-tag inline-flex items-center gap-1.5 border transition-colors duration-200 ${tagStyle(t).tone} ${tagStyle(t).hoverTone}`}>
+                                                    {entry && <entry.Icon size={12} className="text-neutral-400 group-hover:[color:var(--ic)] transition-colors duration-200" />}
+                                                    {t}
+                                                </span>
+                                            )
+                                        })}
                                     </div>
                                 )}
                             </div>

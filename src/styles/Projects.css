@@ -1,3 +1,33 @@
+#projects {
+    position: relative;
+    overflow: hidden;
+}
+
+.projects-blob-orange {
+    width: 480px;
+    height: 480px;
+    background: rgba(249, 115, 22, 0.09);
+    top: -10%;
+    left: -12%;
+}
+
+.projects-blob-blue {
+    width: 420px;
+    height: 420px;
+    background: rgba(96, 165, 250, 0.08);
+    bottom: 0%;
+    right: -10%;
+}
+
+.projects-blob-purple {
+    width: 320px;
+    height: 320px;
+    background: rgba(167, 139, 250, 0.07);
+    top: 55%;
+    left: 38%;
+    transform: translateY(-50%);
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -12,14 +42,66 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: border-color 0.2s ease;
+    position: relative;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
     cursor: pointer;
     text-decoration: none;
     color: inherit;
 }
 
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
 .project-card:hover {
+    transform: translateY(-3px);
     border-color: #3a3a3a;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+/* per-card accent on hover */
+.project-card:has(.thumb-shortify):hover {
+    border-color: rgba(249, 115, 22, 0.35);
+    box-shadow: 0 0 0 0.5px rgba(249, 115, 22, 0.15), 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+.project-card:has(.thumb-shortify)::before {
+    background: linear-gradient(to right, transparent, rgba(249, 115, 22, 0.7), transparent);
+}
+
+.project-card:has(.thumb-migrator):hover {
+    border-color: rgba(96, 165, 250, 0.35);
+    box-shadow: 0 0 0 0.5px rgba(96, 165, 250, 0.15), 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+.project-card:has(.thumb-migrator)::before {
+    background: linear-gradient(to right, transparent, rgba(96, 165, 250, 0.7), transparent);
+}
+
+.project-card:has(.thumb-galaxy):hover {
+    border-color: rgba(167, 139, 250, 0.35);
+    box-shadow: 0 0 0 0.5px rgba(167, 139, 250, 0.15), 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+.project-card:has(.thumb-galaxy)::before {
+    background: linear-gradient(to right, transparent, rgba(167, 139, 250, 0.7), transparent);
+}
+
+.project-card:has(.thumb-portfolio):hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.07), 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+.project-card:has(.thumb-portfolio)::before {
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
 }
 
 .project-thumb {
@@ -27,6 +109,11 @@
     border-bottom: 0.5px solid #1a1a1a;
     position: relative;
     overflow: hidden;
+    transition: border-color 0.25s ease;
+}
+
+.project-card:hover .project-thumb {
+    border-bottom-color: transparent;
 }
 
 /* shared grid base */
@@ -48,6 +135,11 @@
     background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
     pointer-events: none;
     z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .thumb-fade {
+    opacity: 0.65;
 }
 
 /* icon acima de tudo */
@@ -57,6 +149,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-thumb-icon {
+    transform: scale(1.18);
 }
 
 /* ── Shortify — laranja ──────────────────────────────
@@ -77,6 +174,12 @@
     background-size: 28px 28px;
     transform: perspective(280px) rotateX(55deg) rotateZ(-18deg) scale(3);
     opacity: 0.9;
+    transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.project-card:hover .grid-shortify {
+    transform: perspective(280px) rotateX(55deg) rotateZ(-18deg) scale(3.3);
+    opacity: 1;
 }
 
 /* ── GitHub Migrator — azul ──────────────────────────
@@ -98,6 +201,12 @@
     height: 100%;
     top: 0;
     left: 0;
+    transition: opacity 0.3s ease, transform 0.4s ease;
+}
+
+.project-card:hover .grid-migrator {
+    opacity: 0.7;
+    transform: scale(1.08);
 }
 
 /* ── Pro Galaxy Bot — roxo ───────────────────────────
@@ -121,6 +230,12 @@
     top: 0;
     left: 0;
     opacity: 1;
+    transition: opacity 0.3s ease, transform 0.4s ease;
+}
+
+.project-card:hover .grid-galaxy {
+    opacity: 0.75;
+    transform: scale(1.06) rotate(6deg);
 }
 
 /* ── Portfolio — grid perspetivada do hero ───────────  */
@@ -145,6 +260,12 @@
     opacity: 0.4;
     pointer-events: none;
     z-index: 0;
+    transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.project-card:hover .thumb-portfolio-grid {
+    transform: perspective(300px) rotateX(55deg) scale(2.5);
+    opacity: 0.6;
 }
 .thumb-portfolio-fade {
     position: absolute;
@@ -180,6 +301,11 @@
     color: #777;
     line-height: 1.6;
     margin: 0;
+    transition: color 0.25s ease;
+}
+
+.project-card:hover .project-desc {
+    color: #999;
 }
 
 .project-tags {

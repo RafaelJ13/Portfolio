@@ -1,7 +1,8 @@
 import '../../styles/Projects.css'
 import { TAG_COLORS } from '../../data/techStack.js'
+import { ICONS } from '../../data/techIcons'
 
-const DEFAULT_TAG = { tone: 'border-neutral-300/10', hoverTone: 'hover:border-neutral-300/20 hover:bg-neutral-400/10' }
+const DEFAULT_TAG = { tone: 'border-neutral-300/10', cardHoverTone: 'group-hover/card:border-neutral-300/20 group-hover/card:bg-neutral-400/10' }
 const tagStyle = (name) => TAG_COLORS[name] ?? DEFAULT_TAG
 
 const projects = [
@@ -37,7 +38,7 @@ const projects = [
     {
         name: "Pro Galaxy Bot",
         description: "Discord bot with a full ticket support system. Users can open private text and voice channels for support; admins close and clean them up. Data persisted in MongoDB via Mongoose.",
-        tags: ["Node.js", "Discord.js", "MongoDB", "Mongoose"],
+        tags: ["Node.js", "Discord.js", "MongoDB"],
         url: "https://github.com/RafaelJ13/pro-galaxy-bot",
         thumb: "thumb-galaxy",
         gridClass: "grid-galaxy",
@@ -51,14 +52,17 @@ const projects = [
 
 function Projects() {
     return (
-        <section id="projects" aria-label="Projects by Rafael Januário" className="min-h-screen flex flex-col justify-center border-b border-neutral-900 pt-16">
-            <div className="max-w-4xl w-full mx-auto px-10 -py-3">
+        <section id="projects" aria-label="Projects by Rafael Januário" className="min-h-screen flex flex-col justify-center pt-16">
+            <div className="section-bg-blob projects-blob-orange" />
+            <div className="section-bg-blob projects-blob-blue" />
+            <div className="section-bg-blob projects-blob-purple" />
+            <div className="max-w-4xl w-full mx-auto px-10 -py-3 relative" style={{ zIndex: 3 }}>
                 <h2 className="section-label mb-2 mt-4">Projects</h2>
                 <div className="projects-grid">
                     {projects.map((p, i) => (
                         <a
                             key={i}
-                            className="project-card"
+                            className="project-card group/card"
                             href={p.url}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -73,16 +77,22 @@ function Projects() {
                                 <h3 className="project-name">{p.name}</h3>
                                 <p className="project-desc">{p.description}</p>
                                 <div className="project-tags">
-                                    {p.tags.map((t) => (
-                                        <span key={t} className={`project-tag border transition-colors duration-200 ${tagStyle(t).tone} ${tagStyle(t).hoverTone}`}>{t}</span>
-                                    ))}
+                                    {p.tags.map((t) => {
+                                        const entry = ICONS[t]
+                                        return (
+                                            <span key={t} style={entry ? { '--ic': entry.color } : undefined} className={`project-tag inline-flex items-center gap-1.5 border transition-colors duration-200 ${tagStyle(t).tone} ${tagStyle(t).cardHoverTone}`}>
+                                                {entry && <entry.Icon size={12} className="text-neutral-400 group-hover/card:[color:var(--ic)] transition-colors duration-200" />}
+                                                {t}
+                                            </span>
+                                        )
+                                    })}
                                 </div>
                             </div>
                         </a>
                     ))}
 
                     <a
-                        className="project-card"
+                        className="project-card group/card"
                         href="https://github.com/RafaelJ13/Portfolio"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -103,9 +113,15 @@ function Projects() {
                             <h3 className="project-name">Portfolio</h3>
                             <p className="project-desc">This portfolio website — a single-page app built with React and Vite, featuring scroll snapping, dynamic GitHub stats, and a contact form.</p>
                             <div className="project-tags">
-                                {["React", "Vite", "JavaScript", "CSS"].map((t) => (
-                                    <span key={t} className={`project-tag border transition-colors duration-200 ${tagStyle(t).tone} ${tagStyle(t).hoverTone}`}>{t}</span>
-                                ))}
+                                {["React", "Vite", "JavaScript", "CSS"].map((t) => {
+                                    const entry = ICONS[t]
+                                    return (
+                                        <span key={t} style={entry ? { '--ic': entry.color } : undefined} className={`project-tag inline-flex items-center gap-1.5 border transition-colors duration-200 ${tagStyle(t).tone} ${tagStyle(t).cardHoverTone}`}>
+                                            {entry && <entry.Icon size={12} className="text-neutral-400 group-hover/card:[color:var(--ic)] transition-colors duration-200" />}
+                                            {t}
+                                        </span>
+                                    )
+                                })}
                             </div>
                         </div>
                     </a>
