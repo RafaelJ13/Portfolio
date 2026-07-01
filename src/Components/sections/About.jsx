@@ -10,7 +10,7 @@ function About() {
     const userlangs = useGithubLanguageCount("RafaelJ13");
 
     const stats = [
-        { num: (currYear-2020).toString()+"+", label: "Years coding" },
+        { num: (currYear-2024).toString()+"+", label: "Years coding" },
         { num: repoCount.toString(),  label: "Projects built" },
         { num: userlangs.toString(),  label: "Core technologies" },
         { num: "PT", label: "Based in Portugal" },
