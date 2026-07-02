@@ -6,7 +6,7 @@
 .about-blob-teal {
     width: 440px;
     height: 440px;
-    background: rgba(34, 211, 238, 0.07);
+    background: rgba(34, 211, 238, 0.11);
     top: -8%;
     right: -10%;
 }
@@ -14,7 +14,7 @@
 .about-blob-indigo {
     width: 380px;
     height: 380px;
-    background: rgba(99, 102, 241, 0.06);
+    background: rgba(99, 102, 241, 0.10);
     bottom: 5%;
     left: -8%;
 }
@@ -34,69 +34,75 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    align-items: center;
+    align-items: stretch;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-title {
+    font-size: 26px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
 }
 
 .about-text p {
-    font-size: 18px;
-    color: #ccc;
+    font-size: 15px;
+    color: #aaa;
     line-height: 1.8;
-    margin-bottom: 1rem;
-}
-
-.skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 1.5rem;
-}
-
-.skill-tag {
-    background: #161616;
-    border: 0.5px solid #2a2a2a;
-    border-radius: 20px;
-    padding: 8px 18px;
-    font-size: 14px;
-    color: #ddd;
-}
-
-.skill-tag.primary {
-    border-color: #3a3a3a;
-    color: #fff;
-}
-
-.skill-tag-tw {
-    border-radius: 20px;
-    padding: 4px 11px;
-    font-size: 11.5px;
-    color: #ddd;
-    background: #161616;
-    cursor: default;
+    margin: 0;
 }
 
 .about-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 1rem;
+    height: 100%;
 }
 
 .stat {
-    background: #161616;
-    border: 0.5px solid #222;
+    background: #111;
+    border: 0.5px solid #1e1e1e;
     border-radius: 10px;
-    padding: 2rem;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: default;
 }
 
+.stat:hover {
+    transform: translateY(-3px);
+}
+
+/* colored border + glow shadow per card */
+.about-stats .stat:nth-child(1) { border-color: rgba(251, 191, 36, 0.15);  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.04); }
+.about-stats .stat:nth-child(2) { border-color: rgba(96, 165, 250, 0.15);  box-shadow: 0 4px 20px rgba(96, 165, 250, 0.04); }
+.about-stats .stat:nth-child(3) { border-color: rgba(52, 211, 153, 0.15);  box-shadow: 0 4px 20px rgba(52, 211, 153, 0.04); }
+.about-stats .stat:nth-child(4) { border-color: rgba(129, 140, 248, 0.15); box-shadow: 0 4px 20px rgba(129, 140, 248, 0.04); }
+
+.about-stats .stat:nth-child(1):hover { border-color: rgba(251, 191, 36, 0.28);  box-shadow: 0 6px 28px rgba(251, 191, 36, 0.10); }
+.about-stats .stat:nth-child(2):hover { border-color: rgba(96, 165, 250, 0.28);  box-shadow: 0 6px 28px rgba(96, 165, 250, 0.10); }
+.about-stats .stat:nth-child(3):hover { border-color: rgba(52, 211, 153, 0.28);  box-shadow: 0 6px 28px rgba(52, 211, 153, 0.10); }
+.about-stats .stat:nth-child(4):hover { border-color: rgba(129, 140, 248, 0.28); box-shadow: 0 6px 28px rgba(129, 140, 248, 0.10); }
+
 .stat-num {
-    font-size: 48px;
+    font-size: 38px;
     font-weight: 500;
     margin-bottom: 4px;
     color: #fff;
 }
 
 .stat-label {
-    font-size: 14px;
-    color: #777;
+    font-size: 13px;
+    color: #666;
 }
 
 /* =======================
@@ -110,12 +116,16 @@
         gap: 2rem;
     }
 
+    .about-title {
+        font-size: 22px;
+    }
+
     .about-text p {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .about-stats {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 
     .stat {
@@ -124,11 +134,11 @@
     }
 
     .stat-num {
-        font-size: 32px;
+        font-size: 28px;
     }
 
     .stat-label {
-        font-size: 13px;
+        font-size: 12px;
     }
 }
 
@@ -140,25 +150,22 @@
 
     .section-label {
         font-size: 10px;
-        margin-bottom: 1rem
+        margin-bottom: 1rem;
+    }
+
+    .about-title {
+        font-size: 20px;
     }
 
     .about-text p {
-        font-size: 15px;
-    }
-
-    .skill-tag,
-    .skill-tag-tw {
-        font-size: 12px;
-        padding: 6px 12px;
+        font-size: 13.5px;
     }
 
     .stat-num {
-        font-size: 28px;
+        font-size: 24px;
     }
 
     .stat {
         padding: 1.2rem;
     }
 }
-

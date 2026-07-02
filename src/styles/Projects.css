@@ -63,46 +63,27 @@
 
 .project-card:hover {
     transform: translateY(-3px);
-    border-color: #3a3a3a;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
 }
 
 .project-card:hover::before {
     opacity: 1;
 }
 
-/* per-card accent on hover */
-.project-card:has(.thumb-shortify):hover {
-    border-color: rgba(249, 115, 22, 0.35);
-    box-shadow: 0 0 0 0.5px rgba(249, 115, 22, 0.15), 0 16px 40px rgba(0, 0, 0, 0.5);
-}
-.project-card:has(.thumb-shortify)::before {
-    background: linear-gradient(to right, transparent, rgba(249, 115, 22, 0.7), transparent);
-}
+/* per-card accent — default + hover */
+.project-card:has(.thumb-shortify) { border-color: rgba(249, 115, 22, 0.15);  box-shadow: 0 4px 20px rgba(249, 115, 22, 0.04); }
+.project-card:has(.thumb-migrator)  { border-color: rgba(96, 165, 250, 0.15);  box-shadow: 0 4px 20px rgba(96, 165, 250, 0.04); }
+.project-card:has(.thumb-galaxy)    { border-color: rgba(167, 139, 250, 0.15); box-shadow: 0 4px 20px rgba(167, 139, 250, 0.04); }
+.project-card:has(.thumb-portfolio) { border-color: rgba(255, 255, 255, 0.08); box-shadow: 0 4px 20px rgba(255, 255, 255, 0.02); }
 
-.project-card:has(.thumb-migrator):hover {
-    border-color: rgba(96, 165, 250, 0.35);
-    box-shadow: 0 0 0 0.5px rgba(96, 165, 250, 0.15), 0 16px 40px rgba(0, 0, 0, 0.5);
-}
-.project-card:has(.thumb-migrator)::before {
-    background: linear-gradient(to right, transparent, rgba(96, 165, 250, 0.7), transparent);
-}
+.project-card:has(.thumb-shortify):hover { border-color: rgba(249, 115, 22, 0.28);  box-shadow: 0 6px 28px rgba(249, 115, 22, 0.10); }
+.project-card:has(.thumb-migrator):hover  { border-color: rgba(96, 165, 250, 0.28);  box-shadow: 0 6px 28px rgba(96, 165, 250, 0.10); }
+.project-card:has(.thumb-galaxy):hover    { border-color: rgba(167, 139, 250, 0.28); box-shadow: 0 6px 28px rgba(167, 139, 250, 0.10); }
+.project-card:has(.thumb-portfolio):hover { border-color: rgba(255, 255, 255, 0.18); box-shadow: 0 6px 28px rgba(255, 255, 255, 0.05); }
 
-.project-card:has(.thumb-galaxy):hover {
-    border-color: rgba(167, 139, 250, 0.35);
-    box-shadow: 0 0 0 0.5px rgba(167, 139, 250, 0.15), 0 16px 40px rgba(0, 0, 0, 0.5);
-}
-.project-card:has(.thumb-galaxy)::before {
-    background: linear-gradient(to right, transparent, rgba(167, 139, 250, 0.7), transparent);
-}
-
-.project-card:has(.thumb-portfolio):hover {
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.07), 0 16px 40px rgba(0, 0, 0, 0.5);
-}
-.project-card:has(.thumb-portfolio)::before {
-    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
-}
+.project-card:has(.thumb-shortify)::before { background: linear-gradient(to right, transparent, rgba(249, 115, 22, 0.7), transparent); }
+.project-card:has(.thumb-migrator)::before  { background: linear-gradient(to right, transparent, rgba(96, 165, 250, 0.7), transparent); }
+.project-card:has(.thumb-galaxy)::before    { background: linear-gradient(to right, transparent, rgba(167, 139, 250, 0.7), transparent); }
+.project-card:has(.thumb-portfolio)::before { background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent); }
 
 .project-thumb {
     height: 100px;

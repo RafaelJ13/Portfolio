@@ -9,6 +9,7 @@ import Experience from './Components/sections/Experience'
 import Contact from './Components/sections/Contact';
 import useScrollSnap from './hooks/useScrollSnap'
 import Navbar from './Components/ui/Navbar';
+import BackToTop from './Components/ui/BackToTop';
 import { useAnalytics } from './hooks/useAnalytics';
 
 const SECTIONS = ['hero', 'about', 'techstack', 'projects', 'experience', 'contact']
@@ -42,6 +43,7 @@ function App() {
                 <Experience />
                 <Contact />
             </div>
+            <BackToTop />
         </>
     );
 }
